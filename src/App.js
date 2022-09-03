@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Routes, Route } from 'react-router-dom';
+import NavBar from './components/NavBar/NavBar';
+import Footer from './components/Footer/Footer';
+import TablesAll from './pages/TablesAll/TablesAll';
+import TableForm from './pages/TableForm/TableForm';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<TablesAll />} />
+        <Route path="/table/:id" element={<TableForm />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }
