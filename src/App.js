@@ -11,6 +11,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => dispatch(fetchTables()), [dispatch]);
+
   return (
     <div className="App">
       <Container>
