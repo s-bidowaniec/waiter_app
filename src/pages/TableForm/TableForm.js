@@ -1,4 +1,4 @@
-import { useParams, Navigate } from 'react-router';
+import { useParams, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
