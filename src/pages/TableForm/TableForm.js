@@ -1,4 +1,4 @@
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
@@ -9,6 +9,7 @@ import styles from './TableForm.module.scss';
 
 const TableForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id } = useParams();
   const table = useSelector((state) => getTableById(state, Number(id)));
   const [currentTable, setCurrentTable] = useState(table);
@@ -32,7 +33,7 @@ const TableForm = () => {
         ...currentTable
       })
     );
-    return <Navigate to="/" replace={true} />;
+    navigate('/', { replace: true });
   };
   // validators
   const minMaxValidator = (inValue, min, max) => {
@@ -70,7 +71,7 @@ const TableForm = () => {
     }
   };
   // return HTML
-  if (!currentTable) return <Navigate to="/" replace={true} />;
+  if (!currentTable) navigate('/', { replace: true });
   return (
     <div>
       <h4>Table {currentTable.id}</h4>
